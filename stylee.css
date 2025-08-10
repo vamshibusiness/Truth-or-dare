@@ -86,4 +86,72 @@ footer{padding:12px;text-align:center;color:var(--muted);font-size:13px}
   .panel{order:2;height:auto}
   .stage{order:1;min-height:60vh}
 }
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: rgba(255, 255, 255, 0.04); /* glass effect */
+    backdrop-filter: blur(6px); /* optional frosted glass look */
+    border-radius: 8px; /* optional rounded edges */
+}
 
+.contact-section .section-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.contact-section .section-subtitle {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8rem; /* smaller size */
+    height: 2.8rem; /* smaller size */
+    background-color: transparent;
+    border: 0.15rem solid var(--accent);
+    font-size: 1.2rem; /* smaller icon */
+    border-radius: 50%;
+    transition: 0.3s ease;
+    color: var(--accent);
+    animation: glowPulse 2s infinite alternate;
+}
+
+.social-icons a:hover {
+    color: #fff;
+    background-color: var(--accent);
+    transform: scale(1.15) translateY(-3px);
+    box-shadow: 0 0 14px var(--accent);
+}
+
+/* Neon Pulse Animation */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 3px var(--accent);
+    }
+    100% {
+        box-shadow: 0 0 12px var(--accent);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 400px) {
+    .social-icons a {
+        width: 2.0rem;
+        height: 2.0rem;
+        font-size: 1.1rem;
+    }
+}
