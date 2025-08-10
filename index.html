@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Truth or Dare — 2D Bottle spin (updated)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+<div class="app">
+  
+  <!-- panel -->
+  <div class="panel">
+    <div class="logo">
+      <div class="dot">TD</div>
+      <div>
+        <label for="zoomRange">Size:</label>
+<input type="range" id="zoomRange" min="0.5" max="2" step="0.1" value="1">
+        <h1>Truth or Dare</h1>
+        <div class="small">2D spin • Editable players • Truth & Dare lists</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <label>Players (editable names)</label>
+      <div class="players-list" id="playersList"></div>
+      <div style="margin-top:10px" class="row">
+        <button class="btn" id="addPlayerBtn">+ Add player</button>
+        <button class="btn secondary" id="shuffleNamesBtn">Shuffle names</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <label>Game Options</label>
+      <div class="row" style="align-items:center;">
+        <label style="width:120px">Mode</label>
+        <select id="modeSelect">
+          <option value="truthOrDare">Truth or Dare</option>
+          <option value="truthOnly">Truth only</option>
+          <option value="dareOnly">Dare only</option>
+        </select>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <label style="width:120px">Spin strength</label>
+        <input type="range" id="strengthRange" min="1" max="10" value="6" />
+      </div>
+      <div style="margin-top:10px" class="row">
+        <button class="btn" id="spinBtn" style="flex:1">Spin the bottle</button>
+        <button class="btn ghost" id="stopBtn">Stop</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <label>Truth prompts (editable)</label>
+      <textarea id="truths" rows="5">What's your most embarrassing moment?
+Who was your secret crush?
+Have you ever lied to a friend?</textarea>
+    </div>
+
+    <div class="section">
+      <label>Dare prompts (editable)</label>
+      <textarea id="dares" rows="5">Do 20 jumping jacks.
+Sing the chorus of a song.
+Wear socks on your hands for 5 minutes.</textarea>
+      <div class="row" style="margin-top:8px;">
+        <button class="btn" id="resetPrompts">Reset prompts</button>
+        <button class="btn secondary" id="exportSettings">Export</button>
+      </div>
+    </div>
+
+    <footer>Made By @vamshi_Krishna_v7</footer>
+  </div>
+
+  <!-- stage -->
+  <div class="stage">
+<div id="canvas-wrap" style="position: relative;">
+    <canvas id="bottleCanvas"></canvas>
+    <div id="players-overlay"></div>
+</div>
+    
+
+      <div class="topbar">
+        <div class="left">
+          <div class="small">Selected: <span id="selectedName">—</span></div>
+        </div>
+        <div class="right">
+          <div class="small">Mode: <span id="currentMode">Truth or Dare</span></div>
+        </div>
+      </div>
+      
+
+      <div class="ring" id="ring"></div>
+
+      <div class="modal" id="resultModal" role="dialog">
+        <h2 id="resultTitle">Player</h2>
+        <p id="resultText" style="font-size:16px;margin-top:8px"></p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn" id="closeModal">Close</button>
+          <button class="btn secondary" id="newSpin">Spin again</button>
+          <button class="btn ghost" id="copyBtn">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="sscript.js"></script>
+</body>
+</html>
